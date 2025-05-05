@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GamisKu - Toko Gamis Online</title>
+  <style>
+    body { font-family: sans-serif; background: #fdfdfd; margin: 0; padding: 20px; }
+    .container { max-width: 480px; margin: auto; }
+    .splash, .login, .home, .product-detail, .cart, .checkout, .profile {
+      display: none;
+    }
+    .active { display: block; }
+    .card { background: #fff; padding: 16px; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
+    .input { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 8px; }
+    .button { display: block; width: 100%; padding: 10px; background: #d4a373; color: white; border: none; border-radius: 8px; cursor: pointer; }
+    .button-outline { background: none; border: 1px solid #d4a373; color: #d4a373; margin-right: 8px; margin-bottom: 8px; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .product-img { background: #eee; height: 120px; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Splash Screen -->
+    <div class="splash active">
+      <h1>GamisKu</h1>
+      <p>Toko Gamis Online Terpercaya</p>
+      <button class="button" onclick="showPage('login')">Mulai</button>
+    </div>
+
+    <!-- Login Page -->
+    <div class="login">
+      <div class="card">
+        <h2>Masuk</h2>
+        <input type="email" placeholder="Email" class="input" />
+        <input type="password" placeholder="Password" class="input" />
+        <button class="button" onclick="showPage('home')">Masuk</button>
+      </div>
+    </div>
+
+    <!-- Home Page -->
+    <div class="home">
+      <h2>Kategori</h2>
+      <button class="button-outline">Gamis Syar’i</button>
+      <button class="button-outline">Gamis Casual</button>
+      <button class="button-outline">Gamis Anak</button>
+
+      <h2 style="margin-top: 20px">Produk</h2>
+      <div class="grid">
+        <div class="card">
+          <img src=https://i.pinimg.com/736x/45/31/cf/4531cff3d1c634dd731f4d604385d5da.jpg alt="Gamis Elegant">
+          <p><strong>Gamis Elegant</strong></p>
+          <p>Rp 250.000</p>
+          <button class="button" onclick="showPage('product-detail')">Lihat</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Detail Page -->
+    <div class="product-detail">
+      <div class="card">
+        <img src=https://i.pinimg.com/736x/45/31/cf/4531cff3d1c634dd731f4d604385d5da.jpg alt="Gamis Elegant">
+        <h2>Gamis Elegant</h2>
+        <p>Deskripsi lengkap gamis di sini...</p>
+        <p><strong>Rp 250.000</strong></p>
+        <button class="button" onclick="showPage('cart')">Tambah ke Keranjang</button>
+      </div>
+    </div>
+
+    <!-- Cart Page -->
+    <div class="cart">
+      <h2>Keranjang</h2>
+      <div class="card">
+        <img src=https://i.pinimg.com/736x/45/31/cf/4531cff3d1c634dd731f4d604385d5da.jpg alt="Gamis Elegant">
+        <p>Gamis Elegant - Rp 250.000</p>
+        <p>Jumlah: 1</p>
+      </div>
+      <button class="button" onclick="showPage('checkout')">Checkout</button>
+    </div>
+
+    <!-- Checkout Page -->
+    <div class="checkout">
+      <div class="card">
+        <h2>Checkout</h2>
+        <input type="text" placeholder="Alamat Pengiriman" class="input" />
+        <p>Metode Pembayaran: COD</p>
+        <button class="button" onclick="showPage('profile')">Bayar Sekarang</button>
+      </div>
+    </div>
+
+    <!-- Profile Page -->
+    <div class="profile">
+      <h2>Akun Saya</h2>
+      <p>Nama: Pengguna</p>
+      <p>Riwayat Pesanan: 1 pesanan</p>
+      <button class="button" onclick="showPage('login')">Logout</button>
+    </div>
+  </div>
+
+  <script>
+    function showPage(page) {
+      document.querySelectorAll('.splash, .login, .home, .product-detail, .cart, .checkout, .profile')
+        .forEach(el => el.classList.remove('active'));
+      document.querySelector('.' + page).classList.add('active');
+    }
+  </script>
+</body>
+</html>
